@@ -6,7 +6,6 @@ after forking, run
 `npm install`
 
 And then open **index.html** in the browser. 
-Nothing will be there.
 
 run `npm run sass` or `npm run scss` based on your preference. 
 
