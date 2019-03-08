@@ -1,0 +1,16 @@
+{
+  "name": "css_chart_loader",
+  "version": "0.0.1",
+  "description": "css chart loader with configurations",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass --watch style.sass -o css",
+    "scss": "node-sass --watch style.scss -o css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}

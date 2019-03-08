@@ -1,0 +1,104 @@
+// 
+=keyframes($name) 
+    @-webkit-keyframes #{$name} 
+        @content
+    
+    @-moz-keyframes #{$name} 
+        @content
+    
+    @-ms-keyframes #{$name} 
+        @content
+    
+    @keyframes #{$name} 
+        @content
+
+=gradient($color-stops...)
+    background: nth(nth($color-stops, 1), 1)
+    background: -webkit-linear-gradient(to bottom, $color-stops)
+    background: linear-gradient(to bottom, $color-stops)
+    
+$loader-color11: #1399d6
+$loader-color21: #de2890
+$loader-color22: #ff969f
+$loader-color31: #2d65c5
+$loader-color41: #8cd3ff
+$loader-color42: #1593ed
+$light-bg: #ffffff
+
+$loader-bars: 4
+$loader-bar-width: 10px
+$loader-margin: 2px
+$loader-height: 50px
+$loader-width: $loader-bars * ($loader-bar-width + 2 * $loader-margin)
+    
+
+
+@include keyframes(bar1)
+  0% 
+    height: $loader-height * 0.2
+  
+  25%
+    height: $loader-height * 0.5
+  
+  50% 
+    height: $loader-height * 0.8
+
+  75%
+    height: $loader-height
+
+  100% 
+    height: $loader-height * 0.2
+  
+
+
+.graph-loader-bg
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: rgba($light-bg, 0.5)
+  z-index: 9
+
+
+.graph-loader-wrapper
+  position: absolute
+  left: calc(50% - #{$loader-width / 2})
+  top: calc(50% - #{$loader-height / 2})
+  
+  .loaders 
+    display: block
+    height: $loader-height
+    margin: 0 $loader-margin
+    width: $loader-bar-width
+    position: relative
+    float: left
+
+    > div 
+      animation-timing-function: ease-in-out
+      animation-duration: 1.1s
+      animation-name: bar1
+      animation-iteration-count: infinite
+      height: $loader-height * 0.4
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+    
+  
+  
+  .loader1 
+    @include gradient($loader-color11)
+  
+  .loader2 
+    animation-delay: 0.4s
+    @include gradient($loader-color21, $loader-color22)
+  
+  .loader3 
+    animation-delay: 0.8s
+    @include gradient($loader-color31)
+  
+  .loader4 
+    animation-delay: 0.6s
+    @include gradient($loader-color41, $loader-color42)
+  
